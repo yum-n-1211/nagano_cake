@@ -2,10 +2,10 @@
 
 <table>
   <tbody>
-    <%= form_with model: Item.new, local: true do |f| %>
+    <%= form_with model: @item, url: new_admin_item_path, local:true do |f| %>
     <tr>
       <th>商品画像</th>
-      <th><%= attachment_image_tag item, :image, :fill, 100, 100, format: 'jpeg' %></th>
+      <th><%= f.attachment_field :image %></th>
     </tr>
     <tr>
       <th>商品名</th>
@@ -17,15 +17,23 @@
     </tr>
     <tr>
       <th>ジャンル</th>
-      <th></th>
+      <th>
+        <%= f.label :genre_id %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: '--選択してください--'} %>
+      </th>
     </tr>
     <tr>
       <th>税抜価格</th>
-      <th></th>
+      <th><%= f.text_field :price %>円</th>
     </tr>
     <tr>
       <th>販売ステータス</th>
-      <th></th>
+      <th>
+        <%= f.radio_button :is_active, :true %>
+        <%= f.label :is_active, "販売中", {value: :true, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_active, :false %>
+        <%= f.label :is_active, "販売停止中", {value: :false, style: "display: inline-block;"} %>
+      </th>
     </tr>
     <tr>
       <th></th>
@@ -33,6 +41,6 @@
     </tr>
     <% end %>
   </tbody>
-  
-  
+
+
 </table>
