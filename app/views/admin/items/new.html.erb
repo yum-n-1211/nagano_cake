@@ -2,7 +2,7 @@
 
 <table>
   <tbody>
-    <%= form_with model: @item, url: new_admin_item_path, local:true do |f| %>
+    <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
     <tr>
       <th>商品画像</th>
       <th><%= f.attachment_field :image %></th>
@@ -18,7 +18,6 @@
     <tr>
       <th>ジャンル</th>
       <th>
-        <%= f.label :genre_id %>
         <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: '--選択してください--'} %>
       </th>
     </tr>
