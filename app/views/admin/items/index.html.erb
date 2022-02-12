@@ -18,7 +18,7 @@
     <tr>
       <th><%= item.id %></th>
       <th><%= link_to item.name, admin_item_path(item.id) %></th>
-      <th><%= item.price %></th>
+      <th><%= item.price.to_s(:delimited) %></th>
       <th><%= item.genre.name %></th>
       <th>
         <% if item.is_active == true %>

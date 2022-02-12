@@ -5,7 +5,7 @@
     <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
     <tr>
       <th>商品画像</th>
-      <th><%= f.attachment_field :image %></th>
+      <th><%= f.file_field :image, accept: "image/*" %></th>
     </tr>
     <tr>
       <th>商品名</th>
