@@ -41,12 +41,12 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :address, null: false
       t.string :telephone_number, null: false
       t.boolean :is_active, null: false, default: true
-      
+
       t.timestamps null: false
 
     end
 
-    add_index :customers, :email,                unique: true
+    add_index :customers, :email,              , unique: true
     add_index :customers, :reset_password_token, unique: true
     # add_index :customers, :confirmation_token,   unique: true
     # add_index :customers, :unlock_token,         unique: true

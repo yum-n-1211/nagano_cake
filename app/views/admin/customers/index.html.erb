@@ -1,0 +1,31 @@
+<h2>会員一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+    <tr>
+      <th><%= customer.id %></th>
+      <th><%= link_to customer.full_name, admin_customer_path(customer.id) %></th>
+      <th><%= customer.email %></th>
+      <th>
+        <% if customer.is_active == true %>
+          有効
+        <% else %>
+          無効
+        <% end %>
+      </th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @customers %>
