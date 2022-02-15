@@ -1,2 +1,51 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<h2><%= @customer.full_name %>さんの会員情報編集</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <th>会員ID</th>
+      <th><%= @customer.id %></th>
+    </tr>
+    <%= form_with model: @customer, url: admin_customer_path(@customer.id), local:true do |f| %>
+    <tr>
+      <th>氏名</th>
+      <th><%= f.text_field :last_name %></th>
+      <th><%= f.text_field :first_name %></th>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <th><%= f.text_field :last_name_kana %></th>
+      <th><%= f.text_field :first_name_kana %></th>
+    </tr>
+    <tr>
+      <th>郵便番号</th>
+      <th><%= f.text_field :postal_code %></th>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <th><%= f.text_field :address %></th>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <th><%= f.text_field :telephone_number %></th>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <th><%= f.text_field :email %></th>
+    </tr>
+    <tr>
+      <th>会員ステータス</th>
+      <th>
+        <%= f.radio_button :is_active, :true %>
+        <%= f.label :is_active, "有効", {value: :true, style: "display: inline-block;"} %>
+        <%= f.radio_button :is_active, :false %>
+        <%= f.label :is_active, "無効", {value: :false, style: "display: inline-block;"} %>
+      </th>
+    </tr>
+    <tr>
+      <th></th>
+      <th><%= f.submit '変更を保存する' %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
