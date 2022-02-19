@@ -1,0 +1,73 @@
+<h2>注文履歴詳細</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <th>購入者</th>
+      <th><%= @order.customer.full_name %></th>
+    </tr>
+    <tr>
+      <th>注文日</th>
+      <th><%= @order.created_at %></th>
+    </tr>
+    <tr>
+      <th>配送先</th>
+      <th>
+        〒<%= @order.postal_code %><%= @order.address %><br>
+        <%= @order.name %>
+      </th>
+    </tr>
+    <tr>
+      <th>支払方法</th>
+      <th><%= @order.payment_method_i18n %></th>
+    </tr>
+    <tr>
+      <th>注文ステータス</th>
+      <th><%= @order.status_i18n %></th>
+    </tr>
+  </tbody>
+</table>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価（税込）</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th>製作ステータス</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% sum = 0 %>
+    <% @order_details.each do |order_detail| %>
+    <tr>
+      <th><%= order_detail.item.name %></th>
+      <th><%= order_detail.price.to_s(:delimited) %></th>
+      <th><%= order_detail.amount %></th>
+      <th><%= order_detail.subtotal.to_s(:delimited) %></th>
+      <th><%= order_detail.making_status_i18n %></th>
+    <% sum += order_detail.subtotal %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table>
+  <tbody>
+    <tr>
+      <th>商品合計</th>
+      <th><%= sum.round.to_s(:delimited) %>円</th>
+    </tr>
+    <tr>
+      <th>送料</th>
+      <th><%= @order.shipping_cost.to_s(:delimited) %>円</th>
+    </tr>
+    <tr>
+      <th>請求金額合計</th>
+      <th><%= sum += @order.shipping_cost %>円</th>
+    </tr>
+  </tbody>
+</table>
