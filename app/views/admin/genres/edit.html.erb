@@ -1,7 +1,7 @@
-<h2>ジャンル編集</h2>
+<h2  class="btn btn-secondary btn-lg mb-5">ジャンル編集</h2>
 
   <%= form_with model: @genre, url: admin_genre_path(@genre.id), local:true do |f| %>
-    <h4>ジャンル名</h4>
+    <span class="pr-3">ジャンル名</span>
     <%= f.text_field :name %>
-    <%= f.submit '変更を保存する' %>
+    <%= f.submit '変更を保存',class: "btn btn-success" %>
   <% end %>

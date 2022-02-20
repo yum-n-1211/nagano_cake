@@ -1,23 +1,28 @@
-<h2>注文履歴一覧</h2>
+<h2 class="btn btn-secondary btn-lg mb-5">注文履歴一覧</h2>
 
-<table>
-  <thead>
+<div class="center-block">
+<table class="table">
+  <thead class="table-secondary">
     <tr>
-      <th>購入日時</th>
-      <th>購入者</th>
-      <th>注文個数</th>
-      <th>注文ステータス</th>
+      <th style="width: 25%">購入日時</th>
+      <th style="width: 25%">購入者</th>
+      <th style="width: 20%">注文個数</th>
+      <th style="width: 20%">注文ステータス</th>
     </tr>
   </thead>
 
   <tbody>
-
+    <% @orders.each do |order| %>
     <tr>
-      <th><%= @order.created_at %></th>
-      <th><%= @order.customer.full_name %></th>
-      <th></th>
-      <th></th>
+      <th><u><%= link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_path(order.id), class:"text-dark" %></u></th>
+      <th><%= order.customer.full_name %></th>
+      <th><%= order.order_details.sum(:amount) %>
+      </th>
+      <th><%= order.status_i18n %></th>
     </tr>
-
+    <% end %>
   </tbody>
 </table>
+
+<%= paginate @orders %>
+</div>

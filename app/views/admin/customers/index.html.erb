@@ -1,12 +1,13 @@
-<h2>会員一覧</h2>
+<h2 class="btn btn-secondary btn-lg mb-5">会員一覧</h2>
 
-<table>
-  <thead>
+<div class="center-block">
+<table class="table">
+  <thead class="table-secondary">
     <tr>
-      <th>会員ID</th>
-      <th>氏名</th>
-      <th>メールアドレス</th>
-      <th>ステータス</th>
+      <th style="width: 10%">会員ID</th>
+      <th style="width: 25%">氏名</th>
+      <th style="width: 40%">メールアドレス</th>
+      <th style="width: 25%">ステータス</th>
     </tr>
   </thead>
 
@@ -14,13 +15,13 @@
     <% @customers.each do |customer| %>
     <tr>
       <th><%= customer.id %></th>
-      <th><%= link_to customer.full_name, admin_customer_path(customer.id) %></th>
+      <th><u><%= link_to customer.full_name, admin_customer_path(customer.id), class:"text-dark" %></u></th>
       <th><%= customer.email %></th>
       <th>
-        <% if customer.is_active == true %>
-          有効
+        <% if customer.is_active %>
+          <p class="text-success">有効</p>
         <% else %>
-          無効
+          <p class="text-muted">無効</p>
         <% end %>
       </th>
     </tr>
@@ -29,3 +30,5 @@
 </table>
 
 <%= paginate @customers %>
+
+</div>
