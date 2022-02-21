@@ -7,10 +7,10 @@
 
 <h2>新着商品</h2>
 
-  <%= attachment_image_tag @item, :image, :fill, 200, 100, format: 'jpeg', item_path(@item.id) %><br>
   <% @items.each do |item| %>
+  <%= attachment_image_tag item, :image, :fill, 200, 100, format: 'jpeg' %><br>
     <%= item.name %><br>
     <%= item.price %><br>
   <% end %>
 
-<%= link_to '全ての商品を見る>>', items_path %>
+<%= link_to '全ての商品を見る>>', about_path %>
