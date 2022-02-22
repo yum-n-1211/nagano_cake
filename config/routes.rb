@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
 # 管理者用
 # URL /admin/sign_in ...
 devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
@@ -23,6 +24,8 @@ devise_for :customers,skip: [:passwords,], controllers: {
   scope module: 'public' do
     root to: 'homes#top'
     get '/about'=> 'homes#about', as: 'about'
+    get 'customers/my_page' => 'customers#show', as: 'my_page'
+    get 'customers/edit' => 'customers#edit', as: 'edit_coustomer'
   end
 
 
