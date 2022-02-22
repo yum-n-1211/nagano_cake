@@ -23,6 +23,10 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # def update
   #   super
   # end
+  def update
+  current_customer.update(account_update_params)
+  redirect_to '/customers/my_page'
+  end
 
   # DELETE /resource
   # def destroy
@@ -39,10 +43,17 @@ class Public::RegistrationsController < Devise::RegistrationsController
   # end
 
   def after_sign_in_path_for
-    '/customers/my_page'
+    customers_my_page_path
   end
 
   protected
+
+
+
+  #必須  更新（編集の反映）時にパスワード入力を省く
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
@@ -50,9 +61,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
   end
 
   # If you have extra params to permit, append them to the sanitizer.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
-  # end
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :email, :postal_code, :address, :telephone_number])
+  end
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)

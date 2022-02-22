@@ -24,10 +24,9 @@ devise_for :customers,skip: [:passwords,], controllers: {
   scope module: 'public' do
     root to: 'homes#top'
     get '/about'=> 'homes#about', as: 'about'
-    get 'customers/my_page' => 'customers#show', as: 'my_page'
-    get 'customers/edit' => 'customers#edit', as: 'edit_coustomer'
+    get '/customers/my_page' => 'customers#show'
+    get '/customers/edit' => 'customers#edit'
+    patch 'update' => 'customers#update'
   end
-
-
 
 end
