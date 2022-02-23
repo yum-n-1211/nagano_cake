@@ -15,9 +15,19 @@ class Public::AddressesController < ApplicationController
   end
 
   def edit
+    @address = Address.find(params[:id])
   end
 
   def update
+    @address = Address.find(params[:id])
+    @address.update(address_params)
+    redirect_to addresses_path
+  end
+
+  def destroy
+    address = Address.find(params[:id])  # データ（レコード）を1件取得
+    address.destroy  # データ（レコード）を削除
+    redirect_to addresses_path
   end
 
 
