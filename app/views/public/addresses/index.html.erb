@@ -1,0 +1,48 @@
+<h2>配送先登録/一覧</h2>
+
+<%= form_with model: @address, url: addresses_path, local:true do |f| %>
+<table class="table-sm">
+  <tbody>
+    <tr>
+      <th>郵便番号（ハイフンなし）</th>
+      <td><%= f.text_field :postal_code, class:"form-control w40" %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td><%= f.text_field :address, class:"form-control w80" %></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>宛名</th>
+      <td><%= f.text_field :name, class:"form-control w40" %></td>
+      <td><%= f.submit '新規登録',class:"btn btn-success" %></td>
+    </tr>
+  </tbody>
+</table>
+<% end %>
+
+
+<table class="table">
+  <thead class="table-secondary">
+    <tr>
+      <th style="width: 20%">郵便番号</th>
+      <th style="width: 40%">住所</th>
+      <th style="width: 20%">宛名</th>
+      <th style="width: 30%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @addresses.each do |address| %>
+    <tr>
+      <th><%= address.postal_code %></th>
+      <th><%= address.address %></th>
+      <th><%= address.name %></th>
+      <th>
+        <%= link_to '編集する', addresses_edit_path, class: "btn btn-success" %>  <%= link_to '削除する', destroy_address_path(current_customer.id), class: "btn btn-danger" %>
+      </th>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>

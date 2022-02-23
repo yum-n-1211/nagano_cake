@@ -29,6 +29,10 @@ devise_for :customers,skip: [:passwords,], controllers: {
     patch '/customers' => 'customers#update'
     get '/customers/unsubscribe' => 'customers#unsubscribe'
     patch '/customers/withdraw' => 'customers#withdraw'
+    resources :addresses, only: [:create, :index, :update]
+    get '/addresses/edit' => 'addresses#edit'
+    delete '/addresses/:id' => 'addresses#destroy', as: 'destroy_address'
+
   end
 
 end
