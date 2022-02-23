@@ -26,7 +26,9 @@ devise_for :customers,skip: [:passwords,], controllers: {
     get '/about'=> 'homes#about', as: 'about'
     get '/customers/my_page' => 'customers#show'
     get '/customers/edit' => 'customers#edit'
-    patch 'update' => 'customers#update'
+    patch '/customers' => 'customers#update'
+    get '/customers/unsubscribe' => 'customers#unsubscribe'
+    patch '/customers/withdraw' => 'customers#withdraw'
   end
 
 end

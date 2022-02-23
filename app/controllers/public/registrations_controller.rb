@@ -42,13 +42,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  def after_sign_in_path_for
-    customers_my_page_path
-  end
-
   protected
-
-
 
   #必須  更新（編集の反映）時にパスワード入力を省く
   def update_resource(resource, params)
@@ -66,9 +60,9 @@ class Public::RegistrationsController < Devise::RegistrationsController
   end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    customers_my_page_path
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
