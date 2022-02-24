@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-4">
+      <%= attachment_image_tag @item, :image, :fill, 300, 200, format: 'jpeg' %>
+    </div>
+
+  <div class="col-lg-8">
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <th style="width: 75%"><%= @item.name %></th>
+        </tr>
+        <tr>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <td>ジャンル：<%= @item.genre.name %></td>
+        </tr>
+        <tr>
+          <td>¥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</td>
+        </tr>
+        <tr>
+        <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
+          <td>
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.select :amount, *[1..10] , {include_blank: '個数選択'}%>
+            <%= f.submit 'カートに入れる', class: "btn-sm btn-primary" %>
+          </td>s
+        <% end %>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>

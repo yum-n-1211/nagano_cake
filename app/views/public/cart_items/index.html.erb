@@ -1,0 +1,22 @@
+<h2>ショッピングカート</h2>
+
+<table class="table">
+  <tr>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th></th>
+  </tr>
+  <tr>
+  <% @cart_items.each do |item| %>
+    <td>
+      <%= attachment_image_tag cart_item.item, :image, :fill, 120, 80, format: 'jpeg' %>
+      <%= cart_item.item.name %>
+    </td>
+    <td><%= cart_item.item.price.to_s(:delimited) %></td>
+    <td></td>
+    <td></td>
+  <% end %>
+  </tr>
+</table>
