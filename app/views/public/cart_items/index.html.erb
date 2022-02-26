@@ -8,15 +8,16 @@
     <th>小計</th>
     <th></th>
   </tr>
+  <% @cart_items.each do |cart_item| %>
   <tr>
-  <% @cart_items.each do |item| %>
     <td>
       <%= attachment_image_tag cart_item.item, :image, :fill, 120, 80, format: 'jpeg' %>
       <%= cart_item.item.name %>
     </td>
-    <td><%= cart_item.item.price.to_s(:delimited) %></td>
+    <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+    <td><%= cart_item.amount %></td>
+    <td><%= cart_item.subtotal.to_s(:delimited) %></td>
     <td></td>
-    <td></td>
-  <% end %>
   </tr>
+  <% end %>
 </table>
