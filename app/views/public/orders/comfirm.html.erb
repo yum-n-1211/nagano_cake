@@ -1,12 +1,7 @@
-<div class="row">
-  <div class="col-lg-10">
-    <h2>ショッピングカート</h2>
-  </div>
-  <div class="col-lg-2">
-    <%= link_to 'カートを空にする', all_destroy_path, method: :delete, class: "btn btn-danger" %>
-  </div>
-</div>
+<h2>注文情報確認</h2>
 
+<div class="row">
+  <div class="col-lg-8">
 
 <table class="table">
   <tr>
@@ -14,7 +9,6 @@
     <th>単価(税込)</th>
     <th>数量</th>
     <th>小計</th>
-    <th></th>
   </tr>
   <% @cart_items.each do |cart_item| %>
   <tr>
@@ -30,29 +24,44 @@
     </td>
     <% end %>
     <td><%= cart_item.subtotal.to_s(:delimited) %></td>
-    <td><%= link_to '削除する', cart_item_path(cart_item), method: :delete, class: "btn btn-danger" %></td>
   </tr>
   <% @total += cart_item.subtotal %>
   <% end %>
 </table>
 
-
-<div class="row">
-  <div class="col-lg-8">
-    <%= link_to '買い物を続ける', root_path, class:"btn btn-primary" %>
   </div>
   <div class="col-lg-4">
-    <table class="table">
-      <tbody>
-        <tr>
-          <td class="table-secondary">合計金額</td>
-          <td><%= @total.to_s(:delimited) %></td>
-        </tr>
-      </tbody>
-    </table>
+  <table class="table table-bordered">
+    <tbody>
+      <tr>
+        <td>送料</td>
+        <td><%= @order.shipping_cost %></td>
+      </tr>
+      <tr>
+        <td>商品合計</td>
+        <td><%= @total.to_s(:delimited) %></td>
+      </tr>
+      <tr>
+        <td>請求金額</td>
+        <td><%= (@total +- @order.shipping_cost).to_s(:delimited) %></td>
+      </tr>
+    </tbody>
+  </table>
   </div>
 </div>
 
-<div class="text-center">
-  <%= link_to '情報入力に進む', orders_new_path, class: "btn btn-success btn-lg" %>
-</div>
+<table class="table table-borderless">
+  <tbody>
+    <tr>
+      <th style="width :10%">支払方法</th>
+      <td style="width :90%"><%= @order.payment_method_i18n %></td>
+    </tr>
+    <tr>
+      <th>お届け先</th>
+      <td>
+        <%= @order.postal_code %> <%= @order.address %><br>
+        <%= @order.name %>
+      </td>
+    </tr>
+  </tbody>
+</table>
