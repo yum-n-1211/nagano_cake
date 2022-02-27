@@ -31,8 +31,8 @@ devise_for :customers,skip: [:passwords,], controllers: {
     patch '/customers/withdraw' => 'customers#withdraw'
     resources :addresses, only: [:create, :index, :update, :edit, :destroy]
     resources :items, only: [:show, :index]
+    delete '/cart_items/destroy_all' => 'cart_items#destroy_all', as: 'all_destroy'
     resources :cart_items, only: [:create, :index, :update, :destroy]
-    delete '/cart_items/destroy_all' => 'cart_items#all_destroy', as: 'all_destroy'
   end
 
 end
