@@ -35,8 +35,8 @@ devise_for :customers,skip: [:passwords,], controllers: {
     resources :cart_items, only: [:create, :index, :update, :destroy]
     get '/orders/new' => 'orders#new'
     post '/orders/comfirm' => 'orders#comfirm'
-    resources :orders, only:  [:create, :index, :show]
     get '/orders/complete' => 'orders#complete'
+    resources :orders, only:  [:create, :index, :show]
   end
 
 end
