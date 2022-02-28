@@ -44,6 +44,7 @@
 </div>
 
 <h4>配送先</h4>
-<%= link_to '一覧を見る', addresses_path, class:"btn btn-primary" %>
+<%= link_to '一覧を見る',addresses_path(current_customer.id), class: "btn btn-primary" %>
 
 <h4>注文履歴</h4>
+<%= link_to '一覧を見る',orders_path(current_customer.id), class: "btn btn-primary" %>
