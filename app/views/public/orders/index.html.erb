@@ -16,7 +16,7 @@
     <tr>
       <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
       <td>
-        <%= order.postal_code %><br>
+        〒<%= order.postal_code %><br>
         <%= order.address %><br>
         <%= order.name %>
       </td>
@@ -25,7 +25,7 @@
           <%= order_detail.item.name %>
         <% end %>
       </td>
-      <td><%= order.total_payment %></td>
+      <td><%= order.total_payment %>円</td>
       <td><%= order.status_i18n %></td>
       <td><%= link_to '表示>>', order_path(order.id), class:"btn btn-primary" %></td>
     </tr>
