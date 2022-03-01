@@ -2,9 +2,9 @@
   <h2 class="btn btn-secondary btn-lg mb-5">商品編集</h2>
 
 <div class="center-block">
+<%= form_with model: @item, url: admin_item_path(@item.id), local:true do |f| %>  
 <table>
   <tbody>
-    <%= form_with model: @item, url: admin_item_path(@item.id), local:true do |f| %>
     <tr>
       <th style="width: 15%">商品画像</th>
       <th style="width: 45%"><%= f.file_field :image, accept: "image/*" %></th>
@@ -40,8 +40,8 @@
       <th></th>
       <th><%= f.submit '変更を保存',class:"btn btn-success" %></th>
     </tr>
-    <% end %>
   </tbody>
 </table>
+<% end %>
 </div>
 </div>
