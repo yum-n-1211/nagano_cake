@@ -1,4 +1,14 @@
-<h2>配送先登録/一覧</h2>
+<h2 class="leftcolor-pink">配送先登録/一覧
+<style type="text/css">
+  .leftcolor-pink{
+  padding-left: 10px ;
+  border-left-width: 5px ;
+  border-left-style: solid ;
+  border-left-color: #fa8072;
+  color: gray;
+  }
+</style>
+</h2>
 
 <%= form_with model: @address, url: addresses_path, local:true do |f| %>
 <table class="table-sm">

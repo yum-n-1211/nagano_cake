@@ -1,4 +1,14 @@
-<h2>会員情報編集</h2>
+<h2  class="leftcolor-pink">会員情報編集
+<style type="text/css">
+  .leftcolor-pink{
+  padding-left: 10px ;
+  border-left-width: 5px ;
+  border-left-style: solid ;
+  border-left-color: #fa8072;
+  color: gray;
+  }
+</style>
+</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>

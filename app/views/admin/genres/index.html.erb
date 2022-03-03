@@ -1,4 +1,14 @@
-<h2 class="btn btn-secondary btn-lg mb-5">ジャンル一覧・追加</h2>
+<h2 class="leftcolor-pink">ジャンル一覧・追加
+<style type="text/css">
+  .leftcolor-pink{
+  padding-left: 10px ;
+  border-left-width: 5px ;
+  border-left-style: solid ;
+  border-left-color: #fa8072;
+  color: gray;
+  }
+</style>
+</h2>
 
 
   <%= form_with model: Genre.new, url: admin_genres_path, local: true do |f| %>

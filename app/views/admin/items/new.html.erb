@@ -1,4 +1,14 @@
-<h2 class="btn btn-secondary btn-lg mb-5">商品新規登録</h2>
+<h2  class="leftcolor-pink">商品新規登録
+<style type="text/css">
+  .leftcolor-pink{
+  padding-left: 10px ;
+  border-left-width: 5px ;
+  border-left-style: solid ;
+  border-left-color: #fa8072;
+  color: gray;
+  }
+</style>
+</h2>
 
 <div class="center-block">
   <%= form_with model: @item, url: admin_items_path, method: :post, local: true do |f| %>

@@ -1,4 +1,14 @@
-<h2>ログイン</h2>
+<h2  class="leftcolor-pink">ログイン
+<style type="text/css">
+  .leftcolor-pink{
+  padding-left: 10px ;
+  border-left-width: 5px ;
+  border-left-style: solid ;
+  border-left-color: #fa8072;
+  color: gray;
+  }
+</style>
+</h2>
 
 <h4>会員の方はこちらからログイン</h4>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -28,5 +38,14 @@
   </table>
 <% end %>
 
-<h4>会員登録がお済みでない方</h4>
+<h4 class="leftcolor-green">会員登録がお済みでない方
+<style type="text/css">
+  .leftcolor-green{
+  padding-left: 10px ;
+  border-left-width: 5px ;
+  border-left-style: solid ;
+  border-left-color: #008b8b;
+  color: gray;
+  }
+</style></h4>
 <%= link_to 'こちら', new_customer_registration_path %>から新規登録を行ってください。

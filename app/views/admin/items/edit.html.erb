@@ -1,5 +1,15 @@
 <div class="container">
-  <h2 class="btn btn-secondary btn-lg mb-5">商品編集</h2>
+<h2  class="leftcolor-pink">商品編集
+<style type="text/css">
+  .leftcolor-pink{
+  padding-left: 10px ;
+  border-left-width: 5px ;
+  border-left-style: solid ;
+  border-left-color: #fa8072;
+  color: gray;
+  }
+</style>
+</h2>
 
 <div class="center-block">
 <%= form_with model: @item, url: admin_item_path(@item.id), local:true do |f| %>  
