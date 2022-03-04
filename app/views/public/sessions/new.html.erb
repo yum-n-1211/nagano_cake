@@ -16,13 +16,13 @@
     <tbody class="table table-borderless">
       <tr>
         <div class="field">
-          <th><%= f.label :email %></th>
+          <th style="width:20%"><%= f.label "メールアドレス" %></th>
           <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
         </div>
       </tr>
       <tr>
         <div class="field">
-          <th><%= f.label :password %></th>
+          <th><%= f.label "パスワード" %></th>
           <td><%= f.password_field :password, autocomplete: "current-password" %></td>
         </div>
       </tr>

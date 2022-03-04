@@ -19,46 +19,46 @@
       <div class="field">
         <th style="width :20%"><%= f.label :"名前" %></th>
         <td style="width :10%">（姓）</td>
-        <td style="width :30%"><%= f.text_field :last_name %></td>
+        <td style="width :30%"><%= f.text_field :last_name, class:"form-control w20" %></td>
         <td style="width :10%">（名）</td>
-        <td style="width :30%"><%= f.text_field :first_name %></td>
+        <td style="width :30%"><%= f.text_field :first_name, class:"form-control w20" %></td>
       </div>
     </tr>
     <tr>
       <div class="field">
         <th><%= f.label "フリガナ" %></th>
         <td>（セイ）</td>
-        <td><%= f.text_field :last_name_kana %></td>
+        <td><%= f.text_field :last_name_kana, class:"form-control w20" %></td>
         <td>（メイ）</td>
-        <td><%= f.text_field :first_name_kana %></td>
+        <td><%= f.text_field :first_name_kana, class:"form-control w20" %></td>
       </div>
     </tr>
     <tr>
       <div class="field">
         <th><%= f.label "メールアドレス" %></th>
         <td></td>
-        <td><%= f.email_field :email, autocomplete: "email" %></td>
+        <td><%= f.email_field :email, autocomplete: "email", class:"form-control w40" %></td>
       </div>
     </tr>
     <tr>
       <div class="feild">
         <th><%= f.label "郵便番号（ハイフンなし）" %></th>
         <td></td>
-        <td><%= f.text_field :postal_code %></td>
+        <td><%= f.text_field :postal_code, class:"form-control w20" %></td>
       </div>
     </tr>
     <tr>
       <div class="feild">
         <th><%= f.label "住所" %></th>
         <td></td>
-        <td><%= f.text_field :address %></td>
+        <td><%= f.text_field :address, class:"form-control w80" %></td>
       </div>
     </tr>
     <tr>
       <div class="feild">
         <th><%= f.label "電話番号（ハイフンなし）" %></th>
         <td></td>
-        <td><%= f.text_field :telephone_number %></td>
+        <td><%= f.text_field :telephone_number, class:"form-control w20" %></td>
       </div>
     </tr>
     <tr>

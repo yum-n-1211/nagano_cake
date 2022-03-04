@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row">
 
-  <div class="col-lg-4">
-      <%= attachment_image_tag @item, :image, :fill, 300, 200, format: 'jpeg' %>
+  <div class="col-lg-5">
+      <%= attachment_image_tag @item, :image, :fill, 350, 300, format: 'jpeg' %>
     </div>
 
-  <div class="col-lg-8">
+  <div class="col-lg-7">
     <table class="table table-borderless">
       <tbody>
         <tr>
-          <th style="width: 75%"><%= @item.name %></th>
+          <th class="h5 bg-info text-white" style="width: 75%"><%= @item.name %></th>
         </tr>
         <tr>
           <td><%= @item.introduction %></td>
@@ -26,7 +26,7 @@
         <%= form_with model: @cart_item, local:true do |f| %>
             <%= f.hidden_field :item_id, :value => @item.id %>
             <%= f.select :amount, *[1..10] , {include_blank: '個数選択'}%>
-            <%= f.submit 'カートに入れる', class: "btn-sm btn-primary" %>
+            <%= f.submit 'カートに入れる', class: "btn btn-primary" %>
         <% end %>
     </div>
   </div>

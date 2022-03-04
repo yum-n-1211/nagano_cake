@@ -11,9 +11,7 @@
 </h2>
 
 <div class="row">
-  <div class="col-lg-2">
-    <h4>登録情報</h4>
-  </div>
+  <h4 class="col-lg-2">登録情報</h4>
   <div class="col-lg-10">
     <%= link_to '編集する', '/customers/edit', class: "btn btn-success btn-sm" %>
   </div>
@@ -53,8 +51,15 @@
 </div>
 </div>
 
-<h4>配送先</h4>
-<%= link_to '一覧を見る',addresses_path(current_customer.id), class: "btn btn-primary" %>
-
-<h4>注文履歴</h4>
-<%= link_to '一覧を見る',orders_path(current_customer.id), class: "btn btn-primary" %>
+<div class="row">
+  <h4 class="col-lg-2">配送先</h4>
+  <div class="col-lg-10">
+   <%= link_to '一覧を見る',addresses_path(current_customer.id), class: "btn-sm btn-primary" %>
+  </div>
+</div>
+<div class="row">
+  <h4 class="col-lg-2">注文履歴</h4>
+  <div class="col-lg-10">
+   <%= link_to '一覧を見る',orders_path(current_customer.id), class: "btn-sm btn-primary" %>
+  </div>
+</div>

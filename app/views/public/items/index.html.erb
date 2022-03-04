@@ -11,13 +11,20 @@
 </h2>
 <p>全<%= Item.count %>件</p>
 
-
+<div class="row">
 <% @items.each do |item| %>
+<div class="card mb-3 mr-5" style="width: 20rem;">
   <%= link_to item_path(item.id) do %>
-    <%= attachment_image_tag item, :image, :fill, 250, 200, format: 'jpeg' %>
-  <% end %><br>
-  <%= item.name %><br>
-  ¥<%= item.add_tax_price.to_s(:delimited) %>(税抜 ¥<%= item.price.to_s(:delimited) %>)<br>
+    <%= attachment_image_tag item, :image, :fill, 200, 150, format: 'jpeg',class:"card-img-top"; %>
+  <% end %>
+  <div class="card-body">
+    <p class="card-text">
+      <%= item.name %><br>
+      ¥<%= item.add_tax_price.to_s(:delimited) %>(税抜 ¥<%= item.price.to_s(:delimited) %>)<br>
+    </p>
+  </div>
+</div>
 <% end %>
+</div>
 
 <%= paginate @items %>

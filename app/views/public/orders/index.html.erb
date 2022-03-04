@@ -10,12 +10,12 @@
 </style>
 </h2>
 
-<table classs="table table-bordered">
-  <thead class="table-success">
+<table class="table table-bordered">
+  <thead class="thead-dark">
     <tr>
       <th style="width :10%">注文日</th>
-      <th style="width :35%">配送先</th>
-      <th style="width :25%">注文商品</th>
+      <th style="width :30%">配送先</th>
+      <th style="width :30%">注文商品</th>
       <th style="width :10%">支払金額</th>
       <th style="width :10%">ステータス</th>
       <th style="width :10%">注文詳細</th>
@@ -26,13 +26,12 @@
     <tr>
       <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
       <td>
-        〒<%= order.postal_code %><br>
-        <%= order.address %><br>
+        〒<%= order.postal_code %><%= order.address %><br>
         <%= order.name %>
       </td>
       <td>
         <% order.order_details.each do |order_detail| %>
-          <%= order_detail.item.name %>
+          <%= order_detail.item.name %><br>
         <% end %>
       </td>
       <td><%= order.total_payment %>円</td>
