@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
 
   def new
     @order = Order.new
@@ -30,9 +31,6 @@ class Public::OrdersController < ApplicationController
     @cart_items = current_customer.cart_items.all
     @total = 0
   end
-
-
-
 
   def create
     @cart_items = current_customer.cart_items.all
