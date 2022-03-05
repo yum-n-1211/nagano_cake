@@ -21,7 +21,7 @@
   </li>
   <li>
     <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
-    <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
+    <%= f.label :payment_method, Order.payment_methods_i18n[:transfer] %>
   </li>
 </ul>
 
@@ -29,16 +29,15 @@
 <ul class="list-unstyled">
   <li>
     <%= f.radio_button :address_number, 1 %>
-    <%= f.label :address_number_1, "ご自身の住所" %><br>
+    <%= f.label :address_number_1, "ご自身の住所" %>　　＜〒<%= current_customer.postal_code%> <%= current_customer.address %>　<%= current_customer.full_name %>＞
   </li>
   <li>
     <%= f.radio_button :address_number, 2 %>
-    <%= f.label :address_number_2, "登録先の住所" %><br>
-    <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+    <%= f.label :address_number_2, "登録先の住所(選択してください）　" %><%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
   </li>
   <li>
     <%= f.radio_button :address_number, 3 %>
-    <%= f.label :address_number_3, "新しいお届け先" %>
+    <%= f.label :address_number_3, "新しいお届け先（下の入力欄に入力）" %>
     <table class="table-sm">
       <tbody>
         <tr>

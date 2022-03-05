@@ -36,7 +36,7 @@
 
   <div class="row">
     <div class="col-lg-8">
-      <table class="table table-sm">
+      <table class="table table-sm table-bordered">
         <thead class="table-primary">
           <tr>
             <th>商品名</th>
@@ -52,7 +52,7 @@
           <% @order_details.each do |order_detail| %>
           <tr>
             <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.price.to_s(:delimited) %></td>
+            <td><%= order_detail.add_tax_price.to_s(:delimited) %></td>
             <td><%= order_detail.amount %></td>
             <td><%= order_detail.subtotal.to_s(:delimited) %></td>
             <td>
